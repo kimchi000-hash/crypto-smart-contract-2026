@@ -1,0 +1,10 @@
+{
+  "00_HelloWorld.sol": {
+    "__sources__": {
+      "00_HelloWorld.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\n\r\n/// @title Hello World Smart Contract with Access Control\r\n/// @notice Hợp đồng mở rộng có phân quyền chỉ Owner mới được thay đổi nội dung\r\ncontract HelloWorld {\r\n    // Định nghĩa lỗi tùy chỉnh để tiết kiệm gas\r\n    error NotOwner();\r\n\r\n    // 1. Biến trạng thái (State Variables)\r\n    address public immutable i_owner;\r\n    string private s_greeting;\r\n    uint256 public s_updateCount;\r\n\r\n    // 2. Sự kiện (Events)\r\n    event GreetingChanged(\r\n        address indexed updater,\r\n        string oldGreeting,\r\n        string newGreeting,\r\n        uint256 timestamp\r\n    );\r\n\r\n    // 3. Hàm khởi tạo (Lưu địa chỉ người deploy vào i_owner)\r\n    constructor(string memory _initialGreeting) {\r\n        i_owner = msg.sender;\r\n        s_greeting = _initialGreeting;\r\n        s_updateCount = 0;\r\n    }\r\n\r\n    // 4. Hàm Ghi - có kiểm tra điều kiện quyền Owner\r\n    function setGreeting(string calldata _newGreeting) external {\r\n        if (msg.sender != i_owner) {\r\n            revert NotOwner();\r\n        }\r\n\r\n        string memory oldGreeting = s_greeting;\r\n        s_greeting = _newGreeting;\r\n        unchecked {\r\n            ++s_updateCount;\r\n        }\r\n        emit GreetingChanged(msg.sender, oldGreeting, _newGreeting, block.timestamp);\r\n    }\r\n\r\n    // 5. Hàm Đọc\r\n    function getGreeting() external view returns (string memory) {\r\n        return s_greeting;\r\n    }\r\n}",
+        "file": "00_HelloWorld.sol"
+      }
+    }
+  }
+}
