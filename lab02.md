@@ -4,11 +4,12 @@
 
 | Trường | Giao dịch thành công | Giao dịch thất bại |
 | :--- | :--- | :--- |
-| **Mã băm giao dịch** | 0xc27d5ede709b8db72206ab6aedc3aaad14f3197813519efbcf69ebf3ee1c0ed2 | Không phát sinh TxHash trên chuỗi (Bị chặn tại Client) |
-| **Số tiền chuyển** | 0.1 Sepolia ETH | 5.0 Sepolia ETH |
-| **Phí giao dịch thực trả** | 0.000000002595648489 ETH | 0 ETH |
+| **Mã băm giao dịch** | 0xc27d5ede709b8db72206ab6aedc3aaad14f3197813519efbcf69ebf3ee1c0ed2 | 0x3c47668df9440f721d4ebbfe5afa1a444f2ba5f744b54ecbdd9a338ad31d4ed6 |
+| **Số tiền chuyển** | 0.1 Sepolia ETH | 0 ETH |
+| **Phí giao dịch thực trả** | 0.000000002595648489 ETH | 
+0.000054427662744246 ETH |
 | **Trạng thái** | Confirmed / Success | Rejected (Insufficient funds) |
-| **Nguyên nhân (nếu thất bại)** | Không có | Số dư tài khoản không đủ để thanh toán giá trị chuyển và phí gas |
+| **Nguyên nhân (nếu thất bại)** | Không có | Do ví chưa gửi tiền vào hợp đồng nên vi phạm điều kiện kiểm tra số dư (require) trong hàm collect/attack, dẫn đến EVM hủy giao dịch (Execution reverted) |
 
 ## 2. Trả lời câu hỏi nghiệp vụ
 **Câu hỏi:** *Nếu bạn chuyển nhầm cho người lạ, có lấy lại được không? Vì sao?*
