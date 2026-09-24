@@ -1,0 +1,19 @@
+# Báo cáo Lab 2: Ví và giao dịch đầu tiên
+
+## 1. Bảng đối chiếu thông tin giao dịch
+
+| Trường | Giao dịch thành công | Giao dịch thất bại |
+| :--- | :--- | :--- |
+| **Mã băm giao dịch** | 0xc27d5ede709b8db72206ab6aedc3aaad14f3197813519efbcf69ebf3ee1c0ed2 | Không phát sinh TxHash trên chuỗi (Bị chặn tại Client) |
+| **Số tiền chuyển** | 0.1 Sepolia ETH | 5.0 Sepolia ETH |
+| **Phí giao dịch thực trả** | 0.000000002595648489 ETH | 0 ETH |
+| **Trạng thái** | Confirmed / Success | Rejected (Insufficient funds) |
+| **Nguyên nhân (nếu thất bại)** | Không có | Số dư tài khoản không đủ để thanh toán giá trị chuyển và phí gas |
+
+## 2. Trả lời câu hỏi nghiệp vụ
+**Câu hỏi:** *Nếu bạn chuyển nhầm cho người lạ, có lấy lại được không? Vì sao?*
+
+**Trả lời:**
+1. Nếu bạn đã chuyển nhầm tài sản cho người lạ trên mạng blockchain, bạn hoàn toàn không thể tự ý lấy lại khoản tiền đó.
+2. Tính chất bất biến (immutability) của blockchain quy định các giao dịch sau khi đã đóng gói vào khối và xác nhận thì không một cá nhân, tổ chức hay sàn giao dịch nào có thể can thiệp đảo ngược.
+3. Cách duy nhất để lấy lại tiền là người nhận có thiện chí tự nguyện tạo một giao dịch mới để gửi trả lại cho bạn.
