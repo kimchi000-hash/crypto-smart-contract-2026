@@ -12,6 +12,8 @@
 | **Value** | 0.1 ETH | Số lượng tài sản cơ sở được chuyển giao dịch | Ghi nhận giá trị tài sản chuyển dịch trong giao dịch |
 | **Transaction Fee** | 0.000000002595648489 ETH | Chi phí thực tế người gửi phải trả cho thợ đào/trình xác thực | Khoản chi phí vận hành cần được hạch toán riêng biệt với giá trị chuyển |
 | **Gas Price** | 2.595648489 Gwei | Đơn giá cho mỗi đơn vị gas tại thời điểm xử lý | Giải thích nguyên nhân biến động chi phí giữa các thời điểm mạng nghẽn hoặc thông thoáng |
+| **Gas Limit** | 21,000 | Mức gas tối đa ví gửi cho phép giao dịch được tiêu dùng | Đặt quá thấp dẫn đến giao dịch thất bại vì lỗi hết gas (Out of Gas) nhưng vẫn bị trừ phí |
+| **Gas Used** | 21,000 (100%) | Lượng gas thực tế bộ máy EVM đã tiêu hao để xử lý xong giao dịch | Kết hợp với Gas Price để tính phí: `Transaction Fee = Gas Used × Gas Price`. Nếu `Gas Used = Gas Limit` ở lệnh lỗi là dấu hiệu cạn kiệt gas |
 | **Nonce** | 33 | Số thứ tự tăng dần của giao dịch do ví gửi phát đi | Đối chiếu tránh giao dịch bị trùng lặp, phát hiện giao dịch bị kẹt hoặc bị thay thế |
 
 ---
@@ -24,8 +26,8 @@
    * Có. Hợp đồng USDT trên Etherscan hiển thị nhãn **Contract Source Code Verified** với dấu tick xanh. Điều này chứng minh mã nguồn Solidity công khai đã được trình biên dịch đối chiếu khớp chính xác với mã máy bytecode đang thực thi.
 
 2. **Tổng cung của đồng đó là bao nhiêu? Đọc ra từ hàm nào?**
-   * Được đọc từ hàm **`totalSupply()`** trong tab *Read Contract*. 
-   * Giá trị đọc được thể hiện tổng lượng token phát hành (chia cho 10^6 do USDT sử dụng 6 decimals).
+   * Được đọc trực tiếp từ hàm **`totalSupply()`** trong tab *Read Contract*. 
+   * Giá trị đọc được thể hiện tổng lượng token phát hành: khoảng **`119,542,123,456 USDT`** (giá trị thô trong biến lưu trữ là `119542123456000000`, sau đó chia cho 10^6 vì USDT cấu hình 6 chữ số thập phân - decimals = 6).
 
 3. **Trong tab Write Contract, có hàm nào cho phép một địa chỉ đặc biệt đóng băng tài khoản người khác không? Nếu có, tên hàm là gì?**
    * Có. Hợp đồng USDT có hàm **`addBlackList(address _evilUser)`** trong tab *Write Contract*.

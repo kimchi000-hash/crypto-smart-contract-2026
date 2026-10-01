@@ -30,3 +30,14 @@ Hệ thống này giúp chuyên viên phân tích nghiệp vụ và tuân thủ 
 ## 6. Ngoài phạm vi
 - Không phân tích giao dịch của các loại token ERC-20 / ERC-721 (chỉ tập trung ETH gốc).
 - Không thực hiện quy đổi giá trị sang tiền pháp định (VND hoặc USD).
+
+---
+
+## 7. Nhận xét kiểm tra chéo (Peer Review từ nhóm bạn)
+- **Nhóm rà soát chéo:** Nhóm bạn bàn bên (Nhóm Đồ án Ký quỹ thương mại)
+- **Các điểm mơ hồ được chỉ ra và cách làm rõ:**
+  1. *Điểm mơ hồ 1:* Trong mục 3, quy tắc R1 (`to`) và R2 (`from`) chưa nói rõ trường hợp ví tự gửi cho chính mình (`from == to == target`). Nếu áp dụng máy móc cả R1 và R2 sẽ bị tính trùng hai lần dòng tiền.
+     - *Cách giải quyết:* Đã làm rõ trong logic xử lý: Nếu ví tự chuyển cho chính mình, giá trị chuyển ròng bằng 0 (không ghi nhận biến động tăng giảm tiền gửi), nhưng tài khoản vẫn bị trừ khoản phí gas thực tế phát sinh (`TxFee`) và ghi nhận vào dòng tiền ra (`OUT`).
+  2. *Điểm mơ hồ 2:* Khái niệm "90 ngày gần nhất" ở Mục 2 chưa xác định rõ mốc tính từ đầu ngày theo giờ Việt Nam hay theo giờ hệ thống blockchain (UTC).
+     - *Cách giải quyết:* Chuẩn hóa mốc thời gian phân tích: `start_timestamp = current_timestamp - (90 * 86.400 giây)` tính theo chuẩn Unix Timestamp (UTC) để đồng bộ tuyệt đối với dữ liệu khối của Ethereum và API Etherscan.
+- **Kết luận:** Đặc tả đã được rà soát kỹ lưỡng, đủ rõ ràng và chặt chẽ để chuyển giao cho công cụ AI sinh mã mà không phát sinh hiểu nhầm về mặt nghiệp vụ.

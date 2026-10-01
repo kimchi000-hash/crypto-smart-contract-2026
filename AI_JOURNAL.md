@@ -9,15 +9,17 @@
 * Hợp đồng B: Chỉ ra hàm `mint()` tại dòng 12-14, rủi ro pha loãng token do không có trần cung cấp (`MAX_SUPPLY`).
 * Hợp đồng C: Chỉ ra hàm `setRestricted()` và hàm ghi đè `_update()` tại dòng 12-19, rủi ro người dùng bị đưa vào danh sách đen khiến token không thể chuyển nhượng.
 
-**Đánh giá:** [Đạt] Dùng được.
+**Đánh giá:** ✅ Dùng được
 
-**Chỗ sai / Thiếu sót ban đầu:**  
-Khi đọc lướt qua mã nguồn, sinh viên dễ bị đánh lừa bởi chú thích hợp lý của nhà phát triển (ví dụ `mint` để khuyến mại hoặc `restricted` để bảo vệ cộng đồng). AI hỗ trợ bóc tách trực tiếp logic thực thi của mã mà không bị chi phối bởi các dòng chú thích (comment).
+**So sánh đọc thủ công và AI hỗ trợ:**
+- **Đọc thủ công tìm ra gì:** Sinh viên đọc 15 phút ban đầu nhận thấy hợp đồng B có hàm `mint()` cho phép tạo thêm token và hợp đồng C có biến/mapping liên quan đến hạn chế chuyển nhượng, nhưng dễ bị phân tâm bởi các đoạn comment mang tính ngụy biện (ví dụ: chú thích bảo vệ cộng đồng).
+- **AI tìm thêm được gì:** AI trích xuất chính xác dòng lệnh thực thi (hàm `mint` dòng 12-14 ở Contract B và hàm `setRestricted` kết hợp `_update` dòng 12-19 ở Contract C); chỉ ra cơ chế honeypot (người dùng mua được nhưng không bán được) và cơ chế pha loãng lạm phát không giới hạn.
+- **AI có nói sai chỗ nào không:** Ban đầu nếu không có câu chốt chặn *"Chỉ trả lời dựa trên mã nguồn tôi cung cấp"*, AI có xu hướng bịa thêm các lỗi bảo mật phổ biến như reentrancy hoặc flash loan dù mã nguồn không có. Khi dùng prompt chuẩn, AI đã tập trung đúng phạm vi mã được cung cấp và không bị ảo giác.
 
 **Cách sửa / Hoàn thiện:**  
-Sinh viên đối chiếu số dòng thực tế trong mã nguồn Phụ lục I với kết quả AI đưa ra, bổ sung phân tích tác động tài chính đối với nhà đầu tư.
+Sinh viên đối chiếu số dòng thực tế trong mã nguồn với kết quả AI đưa ra, bổ sung phân tích tác động tài chính đối với nhà đầu tư vào bảng `lab04.md`.
 
-**Ai phát hiện:** Sinh viên phát hiện và đối chiếu.
+**Ai phát hiện:** Sinh viên tự đọc phát hiện trước, sau đó dùng AI để rà soát chi tiết số dòng và củng cố lập luận.
 
 ---
 
