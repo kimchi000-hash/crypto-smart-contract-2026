@@ -37,4 +37,21 @@ Khi hỏi chung về vụ hack mà không giới hạn dữ liệu Etherscan, LL
 **Cách sửa / Hoàn thiện:**  
 Ép AI làm việc trực tiếp trên dữ liệu thật lấy từ tab Overview & Internal Txns của Etherscan và API Blockscout (`curl` lấy số dư và danh sách transaction). Đối chiếu chéo mã băm giao dịch (TxHash) thực tế trên Etherscan để đảm bảo tính xác thực 100%.
 
-**Ai phát hiện:** Sinh viên kiểm chứng và đối chiếu on-chain.
+**Ai phát hiện:** Sinh viên kiểm chứng và đối chiếu on-chain.
+# NHẬT KÝ LÀM VIỆC VỚI AI — LAB 6
+
+## Lần 1
+- **Prompt:** "Đọc tệp SPEC.md trong dự án và viết chương trình Python thực hiện đúng đặc tả đó..."
+- **AI trả về:** Sinh tệp analyze_cashflow.py kết nối Etherscan API và vẽ biểu đồ cashflow_90days.png.
+- **Đánh giá:** ⚠ Phải sửa
+- **Chỗ sai:** AI dùng lệnh `continue` bỏ qua các giao dịch có `isError == '1'`, không tính khoản phí gas mà ví gửi phải chịu (vi phạm quy tắc R4 trong SPEC.md, làm sai số dư lũy kế).
+- **Cách sửa:** Sinh viên bổ sung logic: nếu `isError == '1'`, giá trị chuyển bằng 0 nhưng vẫn trừ `TxFee = (gasUsed * gasPrice) / 10^18`.
+- **Ai phát hiện:** Sinh viên phát hiện
+
+## Lần 2
+- **Prompt:** "Kiểm tra lại cơ chế kéo dữ liệu lịch sử giao dịch khi số lượng vượt ngưỡng."
+- **AI trả về:** Đoạn mã chỉ gọi request một lần với `page=1`.
+- **Đánh giá:** ⚠ Phải sửa
+- **Chỗ sai:** Thiếu cơ chế phân trang tự động (Pagination) khi số lượng giao dịch vượt quá 10.000 (vi phạm ngoại lệ E3 trong SPEC.md).
+- **Cách sửa:** Sinh viên yêu cầu viết thêm vòng lặp tăng số trang `page` cho đến khi mảng dữ liệu trả về rỗng.
+- **Ai phát hiện:** Sinh viên phát hiện
