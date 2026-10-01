@@ -11,13 +11,13 @@
 
 | Bài Lab | Tên bài thực hành | Đặc tả nghiệp vụ (SPEC) | Báo cáo / Sản phẩm bàn giao | Nhật ký AI | Trạng thái |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **Lab 01** | Chuẩn bị môi trường & Contract đầu tiên | [SPEC_LAB01.md](specs/SPEC_LAB01.md) | [AGENTS.md](AGENTS.md) | [AI_JOURNAL.md] | ✅ Hoàn thành |
-| **Lab 02** | Ví và giao dịch đầu tiên | [SPEC_LAB02.md](specs/SPEC_LAB02.md) | [lab02.md](lab02.md) | [AI_JOURNAL.md] | ✅ Hoàn thành |
+| **Lab 01** | Chuẩn bị môi trường & Contract đầu tiên | [SPEC_LAB01.md](specs/SPEC_LAB01.md) | [00_HelloWorld.sol](contracts/00_HelloWorld.sol) & [AGENTS.md](AGENTS.md) | [AI_JOURNAL.md](AI_JOURNAL.md) | ✅ Hoàn thành |
+| **Lab 02** | Ví và giao dịch đầu tiên | [SPEC_LAB02.md](specs/SPEC_LAB02.md) | [lab02.md](lab02.md) | [AI_JOURNAL.md](AI_JOURNAL.md) | ✅ Hoàn thành |
 | **Lab 03** | Đọc giao dịch trên Etherscan & AML | [SPEC_LAB03.md](specs/SPEC_LAB03.md) | [forensics.md](forensics.md) & [trace.md](trace.md) | [AI_JOURNAL.md](AI_JOURNAL.md) | ✅ Hoàn thành |
 | **Lab 04** | Nhận diện hợp đồng có rủi ro | [SPEC_LAB04.md](specs/SPEC_LAB04.md) | [lab04.md](lab04.md) | [AI_JOURNAL.md](AI_JOURNAL.md) | ✅ Hoàn thành |
-| **Lab 05** | Viết đặc tả cho công cụ phân tích dòng tiền | [SPEC_LAB05.md](specs/SPEC_LAB05.md) | [SPEC.md](SPEC.md) | [AI_JOURNAL.md] | ✅ Hoàn thành |
+| **Lab 05** | Viết đặc tả cho công cụ phân tích dòng tiền | [SPEC_LAB05.md](specs/SPEC_LAB05.md) | [SPEC.md](SPEC.md) | [AI_JOURNAL.md](AI_JOURNAL.md) | ✅ Hoàn thành |
 | **Lab 06** | Sinh mã bằng AI và kiểm tra kết quả | [SPEC_LAB06.md](specs/SPEC_LAB06.md) | [analyze_cashflow.py](analyze_cashflow.py) & [cashflow_90days.png](cashflow_90days.png) | [AI_JOURNAL.md](AI_JOURNAL.md) | ✅ Hoàn thành |
-| **Lab 07** | Tính chi phí vận hành thực tế | [SPEC_LAB07.md](specs/SPEC_LAB07.md) | [lab07.md](lab07.md) | [AI_JOURNAL.md] | ✅ Hoàn thành |
+| **Lab 07** | Tính chi phí vận hành thực tế | [SPEC_LAB07.md](specs/SPEC_LAB07.md) | [lab07.md](lab07.md) | [AI_JOURNAL.md](AI_JOURNAL.md) | ✅ Hoàn thành |
 
 ---
 # ECO2432 Web3 Starter
