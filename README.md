@@ -1,3 +1,11 @@
+# HỌC PHẦN ECO2432 — TIỀN ĐIỆN TỬ & HỢP ĐỒNG THÔNG MINH
+
+- **Họ và tên:** Nguyễn Thị Kim Chi
+- **Mã sinh viên:** 23K4300025
+- **Tài khoản GitHub:** kimchi000-hash
+- **Mạng thử nghiệm:** Ethereum Sepolia Testnet
+
+---
 # ECO2432 Web3 Starter
 
 Kho khởi đầu dùng xuyên suốt 15 bài thực hành.
